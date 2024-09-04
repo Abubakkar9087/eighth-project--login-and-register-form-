@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0%;
+        }
+
+        .container {
+            height: 100vh;
+            background-color: navy;
+            background-image: url(1.jfif);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        form {
+            box-shadow: 0 0 10px black;
+            padding: 25px;
+            /* display: flex; */
+            /* flex-direction: column; */
+            backdrop-filter: blur(6px);
+            /* justify-content: center; */
+            border-radius: 10px;
+        }
+
+        .both-form {
+            width: auto;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+            display: flex;
+            justify-content: center;
+            width: 90%;
+        }
+
+        button {
+            display: flex;
+            justify-content: center;
+            width: 95%;
+            padding: 10px;
+            cursor: pointer;
+            transition: .5s;
+            font-weight: 600;
+            background-color: #4e8cff;
+        }
+
+        button:hover {
+            background-color: #0c2d2e;
+            color: white;
+            font-weight: 600;
+            transform: scale(1.1);
+        }
+
+        ::-webkit-input-placeholder {
+            color: #000000;
+            font-weight: 600;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: rgb(9, 63, 16);
+            font-weight: 700;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        p {
+            text-align: center;
+            color: rgb(255, 255, 255);
+            text-shadow: 0 0 10px black;
+        }
+
+        p>b {
+            transition: .5s;
+            color: #4e8cff;
+            font-weight: bolder;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        p>b:hover {
+            /* transition: .5s; */
+            /* transform: scale(1.1); */
+            color: #e23030;
+            font-weight: 900;
+            text-decoration: overline;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" id="form-page">
+            <div class="both-form" id="login-form">
+                <h1>Login Here</h1>
+                <input type="text" id="username" placeholder="Enter Username" required> <br>
+                <input type="password" id="password" placeholder="Enter Password"> <br>
+                <button type="button" onclick="Submit()" id="btn">Submit</button>
+                <p>Don't have an account? <b onclick="shiftPage()" id="page-shift"><u> Sign up</u></b></p>
+            </div>
+            <div class="both-form" id="register-form">
+                <h1>Register Here</h1>
+                <input type="text" id="register-username" placeholder="Enter Username">
+                <input type="password" id="register-password" placeholder="Enter Password">
+                <input type="password" id="confirm-password" placeholder="Confirm Password">
+                <button type="button" onclick="Submit()">Submit</button>
+                <p>Already have an account? <b onclick="shiftPage2()" id="page-shift"><u> Sign in</u></b></p>
+            </div>
+
+        </form>
+    </div>
+
+    <script>
+
+        let shift = document.getElementById('page-shift');
+        let loginForm = document.getElementById('login-form');
+        let registerForm = document.getElementById('register-form');
+        registerForm.style.display = 'none';
+        function Submit() {
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            if (username === '' && password === '') {
+                alert("Enter Username / Password");
+            }
+            else {
+                alert("Login/Register Success");
+            }
+        }
+
+        function shiftPage() {
+            let loginForm = document.getElementById('login-form');
+            let registerForm = document.getElementById('register-form');
+            let username = document.getElementById('username');
+
+            // let pageShift = document.getElementById('page-shift');
+            if (loginForm.style.display != 'none') {
+                loginForm.style.display = 'none';
+                registerForm.style.display = 'flex';
+
+            }
+
+        }
+        function shiftPage2() {
+            let loginForm = document.getElementById('login-form');
+            let registerForm = document.getElementById('register-form');
+            let username = document.getElementById('username');
+
+            // let pageShift = document.getElementById('page-shift');
+            if (registerForm.style.display != 'none') {
+                loginForm.style.display = 'flex';
+                registerForm.style.display = 'none';
+
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
